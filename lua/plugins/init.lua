@@ -34,7 +34,20 @@ local plugins = {
       "ray-x/cmp-treesitter",
     },
     config = function()
+      require("codeium").setup({})
       require "plugins.nvimcmp"
+    end
+  },
+
+  {
+
+    "jcdickinson/codeium.nvim",
+    dependencies = {
+      "jcdickinson/http.nvim",
+      build = "cargo build --workspace --release"
+    },
+    config = function()
+      require("codeium").setup({})
     end
   },
 

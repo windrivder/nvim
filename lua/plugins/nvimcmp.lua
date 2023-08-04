@@ -83,13 +83,14 @@ local options = {
         Calendar = "",
         Watch = " ",
         Package = "",
-        Copilot = " ",
+        Codeium = " ",
       }
       vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
       return vim_item
     end,
   },
   sources = {
+    { name = "codeium" },
     { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = "buffer" },
