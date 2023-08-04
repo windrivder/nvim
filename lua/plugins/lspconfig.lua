@@ -92,9 +92,9 @@ nvim_lsp.lua_ls.setup {
       },
       workspace = {
         library = {
-              [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-              [vim.fn.expand "$VIMRUNTIME/lua/vim"] = true,
-              [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.expand "$VIMRUNTIME/lua/vim"] = true,
+          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
         },
         maxPreload = 100000,
         preloadFileSize = 10000,
@@ -116,8 +116,8 @@ nvim_lsp.gopls.setup {
     gopls = {
       analyses = {
         nilness = true,
-        shadow = true,
-        unusedparams = true,
+        shadow = false,
+        unusedparams = false,
         unusewrites = true,
       },
       staticcheck = true,
