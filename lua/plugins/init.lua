@@ -34,12 +34,12 @@ local plugins = {
       "ray-x/cmp-treesitter",
     },
     config = function()
-      require("codeium").setup({})
+      -- require("codeium").setup({})
       require "plugins.nvimcmp"
     end
   },
 
-  {
+  --[[ {
 
     "jcdickinson/codeium.nvim",
     dependencies = {
@@ -49,7 +49,7 @@ local plugins = {
     config = function()
       require("codeium").setup({})
     end
-  },
+  }, ]]
 
   {
     "rafamadriz/friendly-snippets",

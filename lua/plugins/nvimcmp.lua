@@ -90,7 +90,7 @@ local options = {
     end,
   },
   sources = {
-    { name = "codeium" },
+    -- { name = "codeium" },
     { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = "buffer" },
