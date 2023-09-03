@@ -1,7 +1,21 @@
 {
-  "Quickly handle errors": {
+  "quickly handle errors": {
     "prefix": "iferr",
     "body": "if err != nil {\n\t${1:return ${2:nil, }${3:err}}\n}",
     "description": "Snippet for if err != nil"
+  },
+  "quickly generated basic code": {
+    "prefix": [
+      "main",
+      "quick"
+    ],
+    "body": [
+      "package main\n",
+      "import (\n\t\"fmt\"\n)\n",
+      "func main() {",
+      "\tfmt.Printf(\"hi Golang\\n${1}\")",
+      "}"
+    ],
+    "description": "package main code"
   }
 }

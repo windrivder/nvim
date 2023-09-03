@@ -36,7 +36,7 @@ M.general = {
     ["<C-d>"] = { "<cmd> vsplit <CR>", "window split" },
     ["<C-S-d>"] = { "<cmd> split <CR>", "window split" },
 
-    ["gq"] = { "<cmd> q! <CR>", "close buffer" },
+    ["gq"] = { "<cmd> bd <CR>", "close buffer" },
     -- ["gb"] = { "gg=G<C-o>", "format document" },
     ["zc"] = { "ggVGzC", "close indentation" },
     ["zo"] = { "ggVGzO", "open indentation" },

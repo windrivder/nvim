@@ -82,10 +82,9 @@ local plugins = {
   --   end,
   -- },
 
-  { "stevearc/dressing.nvim", event = "VeryLazy" },
-
   {
     "numToStr/Comment.nvim",
+    event = "InsertEnter",
     keys = { "gc", "gb" },
     config = function()
       require("Comment").setup()
