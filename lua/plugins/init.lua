@@ -83,6 +83,14 @@ local plugins = {
   -- },
 
   {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("dressing").setup({})
+    end
+  },
+
+  {
     "numToStr/Comment.nvim",
     event = "InsertEnter",
     keys = { "gc", "gb" },
