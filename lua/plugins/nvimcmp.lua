@@ -93,19 +93,10 @@ local options = {
     -- { name = "codeium" },
     { name = "luasnip" },
     { name = "nvim_lsp" },
-    { name = "buffer-lines" },
-    {
-      name = "buffer",
-      option = {
-        get_bufnrs = function()
-          return vim.api.nvim_list_bufs()
-        end
-      }
-    },
+    { name = "buffer" },
     { name = "nvim_lua" },
     { name = "path" },
     { name = "treesitter" },
-    { name = "cmdline" },
   },
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
