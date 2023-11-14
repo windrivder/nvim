@@ -73,6 +73,21 @@ nvim_lsp.pylsp.setup {
 
 }
 
+nvim_lsp.rust_analyzer.setup {
+  on_attach = M.on_attach,
+  capabilities = capabilities,
+  single_file_support = true,
+  flags = flags,
+  settings = {
+    ['rust-analyzer'] = {
+      standalone = true,
+      checkOnSave = {
+        command = 'clippy'
+      }
+    }
+  }
+}
+
 nvim_lsp.lua_ls.setup {
   on_attach = M.on_attach,
   capabilities = capabilities,
