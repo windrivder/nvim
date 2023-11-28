@@ -46,6 +46,7 @@ local plugins = {
       "theHamsta/nvim-dap-virtual-text",
     },
     config = function()
+      require("plugins.dap")
     end
   },
 

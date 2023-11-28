@@ -3,7 +3,7 @@ if not present then
   return
 end
 
-daptext.setup {
+daptext.setup({
   enabled = true,
   enabled_commands = true,
   highlight_changed_variables = true,
@@ -14,4 +14,4 @@ daptext.setup {
   all_frames = false,
   virt_lines = false,
   virt_text_win_col = nil
-}
+})

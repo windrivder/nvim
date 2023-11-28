@@ -143,6 +143,15 @@ M.other = {
   }
 }
 
+M.dap = {
+  n = {
+    ["<leader>dc"] = { "<cmd> lua require('dap').continue() <CR>", "dap.continue" },
+    ["<leader>do"] = { "<cmd> lua require('dap').step_over() <CR>", "dap.step_over" },
+    ["<leader>di"] = { "<cmd> lua require('dap').step_into() <CR>", "dap.step_into" },
+    ["<leader>db"] = { "<cmd> lua require('dap').toggle_breakpoint() <CR>", "dap.toggle_breakpoint" },
+  }
+}
+
 for _, sect in pairs(M) do
   require("core.plugins").set_section_map(sect)
 end
