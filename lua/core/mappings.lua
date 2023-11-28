@@ -115,7 +115,6 @@ M.toggleterm = {
     ["<leader>v"] = { "<cmd> ToggleTerm direction=vertical <CR>", "toggle vertical terminal" },
     ["<leader>m"] = { [[<cmd> lua require("plugins.others").custom_term("glow") <CR>]], "toggle markdown" },
     ["<leader>g"] = { [[<cmd> lua require("plugins.others").custom_term("lazygit") <CR>]], "toggle lazygit" },
-    ["<leader>gb"] = { [[<cmd> GitBlameToggle <CR>]], "toggle gitblame" },
   },
 }
 
@@ -134,6 +133,13 @@ M.lazy = {
     ["<leader>pl"] = { "<cmd> Lazy restore<CR>", "restore package" },
     ["<leader>pp"] = { "<cmd> Lazy profile<CR>", "profile package" },
     ["<leader>pi"] = { "<cmd> Lazy install<CR>", "install package" },
+  }
+}
+
+M.other = {
+  n = {
+    ["<leader>gb"] = { [[<cmd> GitBlameToggle <CR>]], "toggle gitblame" },
+    ["<leader>t"] = { [[<cmd> AerialToggle! <CR>]], "toggle aerial" },
   }
 }
 

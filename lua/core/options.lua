@@ -40,8 +40,10 @@ opt.smartindent = true
 opt.autoindent = true
 opt.autoread = true
 opt.autowrite = true
-opt.foldmethod = "indent"
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldenable = false
+opt.foldlevel = 99
 
 -- tab
 opt.expandtab = true

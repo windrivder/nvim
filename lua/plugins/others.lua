@@ -145,4 +145,25 @@ M.rest = function()
   rest.setup(options)
 end
 
+M.aerial = function()
+  local present, aerial = pcall(require, "aerial")
+
+  if not present then
+    return
+  end
+
+  aerial.setup({
+    backends = { "treesitter", "lsp", "markdown", "man" },
+    layout = {
+      max_width = { 40, 0.4 },
+      width = nil,
+      min_width = 25,
+      -- Enum: prefer_right, prefer_left, right, left, float
+      default_direction = "prefer_right",
+      lazy_load = true,
+      autojump = true,
+    },
+  })
+end
+
 return M

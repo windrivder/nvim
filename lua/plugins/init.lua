@@ -168,7 +168,19 @@ local plugins = {
     config = function()
       require("gitblame").setup({
         enabled = false,
+        date_format = '%y:%m:%d'
       })
+    end
+  },
+
+  {
+    "stevearc/aerial.nvim",
+    opts = {},
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("plugins.others").aerial()
     end
   }
 }
