@@ -90,7 +90,7 @@ local plugins = {
 
   {
     "numToStr/Comment.nvim",
-    event = "InsertEnter",
+    event = "BufReadPost",
     keys = { "gc", "gb" },
     config = function()
       require("Comment").setup()
