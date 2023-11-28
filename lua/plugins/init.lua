@@ -162,6 +162,15 @@ local plugins = {
       require("gopher").setup()
     end
   },
+
+  {
+    "f-person/git-blame.nvim",
+    config = function()
+      require("gitblame").setup({
+        enabled = false,
+      })
+    end
+  }
 }
 
 -- Load all plugins
