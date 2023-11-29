@@ -19,7 +19,7 @@ local options = {
       elements = {
         'scopes',
       },
-      size = 40,
+      size = 30,
       position = 'left',
     },
     {
@@ -28,7 +28,7 @@ local options = {
         'breakpoints',
         'watches',
       },
-      size = 40,
+      size = 30,
       position = 'right',
     },
     {
@@ -46,7 +46,6 @@ local options = {
       position = 'bottom',
     },
   },
-
   floating = {
     max_height = nil,
     max_width = nil,

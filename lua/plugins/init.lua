@@ -44,9 +44,11 @@ local plugins = {
     dependencies = {
       "rcarriga/nvim-dap-ui",
       "theHamsta/nvim-dap-virtual-text",
+      "mfussenegger/nvim-dap-python",
+      "leoluz/nvim-dap-go",
     },
     config = function()
-      require("plugins.dap")
+      require("plugins.ndap")
     end
   },
 

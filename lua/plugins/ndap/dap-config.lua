@@ -69,7 +69,7 @@ local function config_dapui()
   local debug_open                                      = function()
     dapui.open()
     vim.api.nvim_command("DapVirtualTextEnable")
-    vim.api.nvim_command("NvimTreeClose")
+    -- vim.api.nvim_command("NvimTreeClose")
   end
   local debug_close                                     = function()
     dap.repl.close()
@@ -95,6 +95,10 @@ local function config_debuggers()
   local dap = require "dap"
   dap.defaults.fallback.terminal_win_cmd = '30vsplit new'
   dap.set_log_level("DEBUG")
+
+  require("dap.ext.vscode").load_launchjs(nil, { codelldb = { "c", "cpp", "rust" } })
+  require('dap-python').setup(vim.fn.stdpath("data") .. '/mason/packages/debugpy/venv/bin/python')
+  require('dap-go').setup()
 end
 
 function M.setup()

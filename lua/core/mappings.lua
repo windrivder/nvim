@@ -145,10 +145,14 @@ M.other = {
 
 M.dap = {
   n = {
-    ["<leader>dc"] = { "<cmd> lua require('dap').continue() <CR>", "dap.continue" },
-    ["<leader>do"] = { "<cmd> lua require('dap').step_over() <CR>", "dap.step_over" },
+    ["<leader>ds"] = { "<cmd> lua require('dap').continue() <CR>", "dap.continue" },
+    ["<leader>dc"] = { "<cmd> lua require('dap').step_over() <CR>", "dap.step_over" },
     ["<leader>di"] = { "<cmd> lua require('dap').step_into() <CR>", "dap.step_into" },
+    ["<leader>do"] = { "<cmd> lua require('dap').step_out() <CR>", "dap.step_out" },
     ["<leader>db"] = { "<cmd> lua require('dap').toggle_breakpoint() <CR>", "dap.toggle_breakpoint" },
+
+    ["<leader>dt"] = { "<cmd> lua require('dap').terminate() <CR>", "dap.terminate" },
+    ["<leader>dh"] = { "<cmd> lua require('dapui').toggle() <CR>", "dap.ui.toggle" },
   }
 }
 
