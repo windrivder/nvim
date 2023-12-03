@@ -39,6 +39,7 @@ local plugins = {
     end
   },
 
+  -- dap bugger
   {
     "mfussenegger/nvim-dap",
     dependencies = {
@@ -220,6 +221,15 @@ local plugins = {
       require("plugins.others").bufferline()
     end
   },
+
+  {
+    'natecraddock/workspaces.nvim',
+    config = function()
+      require("workspaces").setup({
+        path = vim.fn.stdpath("data") .. "/workspaces/data"
+      })
+    end
+  }
 }
 
 -- Load all plugins

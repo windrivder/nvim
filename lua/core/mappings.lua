@@ -185,6 +185,16 @@ M.bufferline = {
   }
 }
 
+M.project = {
+  n = {
+    ["<leader>p"] = { "<cmd> WorkspacesOpen <CR>", "open workspace" },
+    ["<leader>pa"] = { "<cmd> WorkspacesAdd <CR>", "add workspace" },
+    ["<leader>pr"] = { "<cmd> WorkspacesRemove <CR>", "remove workspace" },
+    ["<leader>pl"] = { "<cmd> WorkspacesList <CR>", "list workspace" },
+
+  }
+}
+
 for _, sect in pairs(M) do
   require("core.plugins").set_section_map(sect)
 end
