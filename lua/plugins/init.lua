@@ -195,7 +195,35 @@ local plugins = {
     config = function()
       require("plugins.others").aerial()
     end
-  }
+  },
+
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("plugins.others").refactoring()
+    end,
+  },
+
+  {
+    'goolord/alpha-nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require("plugins.others").alpha()
+    end
+  },
+
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      require("plugins.others").bufferline()
+    end
+  },
 }
 
 -- Load all plugins

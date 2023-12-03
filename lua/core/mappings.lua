@@ -140,6 +140,7 @@ M.other = {
   n = {
     ["<leader>gb"] = { [[<cmd> GitBlameToggle <CR>]], "toggle gitblame" },
     ["<leader>t"] = { [[<cmd> AerialToggle! <CR>]], "toggle aerial" },
+    ["<leader>a"] = { [[<cmd> Alpha <CR>]], "toggle dashboard" },
   }
 }
 
@@ -153,6 +154,34 @@ M.dap = {
 
     ["<leader>dt"] = { "<cmd> lua require('dap').terminate() <CR>", "dap.terminate" },
     ["<leader>dh"] = { "<cmd> lua require('dapui').toggle() <CR>", "dap.ui.toggle" },
+  }
+}
+
+M.refactoring = {
+  n = {
+    ["<leader>re"] = { "<cmd> lua require('refactoring').refactor('Extract Function') <CR>", "refactor.extract_function" },
+    ["<leader>rf"] = { "<cmd> lua require('refactoring').refactor('Extract Function To File') <CR>", "refactor.extract_function_to_file" },
+    ["<leader>rv"] = { "<cmd> lua require('refactoring').refactor('Extract Variable') <CR>", "refactor.extract_variable" },
+    ["<leader>rI"] = { "<cmd> lua require('refactoring').refactor('Inline Function') <CR>", "refactor.inline_function" },
+    ["<leader>ri"] = { "<cmd> lua require('refactoring').refactor('Inline Variable') <CR>", "refactor.inline_variable" },
+    ["<leader>rb"] = { "<cmd> lua require('refactoring').refactor('Extract Block') <CR>", "refactor.extract_block" },
+    ["<leader>rbf"] = { "<cmd> lua require('refactoring').refactor('Extract Block To File') <CR>", "refactor.extract_block_to_file" },
+
+  }
+}
+
+M.bufferline = {
+  n = {
+    ["<leader>1"] = { "<cmd> lua require('bufferline').go_to(1, true) <CR>", "goto buffer 1" },
+    ["<leader>2"] = { "<cmd> lua require('bufferline').go_to(2, true) <CR>", "goto buffer 2" },
+    ["<leader>3"] = { "<cmd> lua require('bufferline').go_to(3, true) <CR>", "goto buffer 3" },
+    ["<leader>4"] = { "<cmd> lua require('bufferline').go_to(4, true) <CR>", "goto buffer 4" },
+    ["<leader>5"] = { "<cmd> lua require('bufferline').go_to(5, true) <CR>", "goto buffer 5" },
+    ["<leader>6"] = { "<cmd> lua require('bufferline').go_to(6, true) <CR>", "goto buffer 6" },
+    ["<leader>7"] = { "<cmd> lua require('bufferline').go_to(7, true) <CR>", "goto buffer 7" },
+    ["<leader>8"] = { "<cmd> lua require('bufferline').go_to(8, true) <CR>", "goto buffer 8" },
+    ["<leader>9"] = { "<cmd> lua require('bufferline').go_to(9, true) <CR>", "goto buffer 9" },
+    ["<leader>0"] = { "<cmd> lua require('bufferline').go_to(-1, true) <CR>", "goto last buffer" },
   }
 }
 

@@ -166,4 +166,62 @@ M.aerial = function()
   })
 end
 
+M.refactoring = function()
+  require("refactoring").setup({
+    -- prompt for return type
+    prompt_func_return_type = {
+      go = true,
+      cpp = true,
+      c = true,
+      java = true,
+      python = true,
+    },
+    -- prompt for function parameters
+    prompt_func_param_type = {
+      go = true,
+      cpp = true,
+      c = true,
+      java = true,
+      python = true,
+    },
+  })
+end
+
+M.alpha = function()
+  local alpha = require('alpha')
+  local startify = require('alpha.themes.startify')
+  startify.section.header.val = {
+    [[                         _    _   ]],
+    [[                        | |  | |  ]],
+    [[__      __ _   _   __ _ | |_ | |_ ]],
+    [[\ \ /\ / /| | | | / _` || __|| __|]],
+    [[ \ V  V / | |_| || (_| || |_ | |_ ]],
+    [[  \_/\_/   \__, | \__,_| \__| \__|]],
+    [[            __/ |                 ]],
+    [[           |___/                  ]],
+  }
+  alpha.setup(startify.config)
+end
+
+M.bufferline = function()
+  local bufferline = require("bufferline")
+  bufferline.setup({
+    options = {
+      mode = "buffers",
+      themable = true,
+      show_buffer_icons = false,
+      show_buffer_close_icons = false,
+      show_close_icon = false,
+      show_tab_indicators = true,
+      show_duplicate_prefix = true,
+      persist_buffer_sort = true,
+      always_show_bufferline = false,
+      tab_size = 15,
+      truncate_names = true,
+      separator_style = "thin",
+      enforce_regular_tabs = true,
+    }
+  })
+end
+
 return M
