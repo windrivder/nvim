@@ -139,7 +139,7 @@ M.lazy = {
 M.other = {
   n = {
     ["<leader>gb"] = { [[<cmd> GitBlameToggle <CR>]], "toggle gitblame" },
-    ["<leader>t"] = { [[<cmd> AerialToggle! <CR>]], "toggle aerial" },
+    ["<leader>t"] = { [[<cmd> SymbolsOutline <CR>]], "toggle outline" },
     ["<leader>a"] = { [[<cmd> Alpha <CR>]], "toggle dashboard" },
   }
 }

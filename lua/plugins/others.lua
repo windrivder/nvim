@@ -145,23 +145,41 @@ M.rest = function()
   rest.setup(options)
 end
 
-M.aerial = function()
-  local present, aerial = pcall(require, "aerial")
+M.outline = function()
+  local present, outline = pcall(require, "symbols-outline")
 
   if not present then
     return
   end
 
-  aerial.setup({
-    backends = { "treesitter", "lsp", "markdown", "man" },
-    layout = {
-      max_width = { 40, 0.4 },
-      width = nil,
-      min_width = 25,
-      -- Enum: prefer_right, prefer_left, right, left, float
-      default_direction = "prefer_right",
-      lazy_load = true,
-      autojump = true,
+  outline.setup({
+    highlight_hovered_item = true,
+    show_guides = true,
+    auto_preview = false,
+    position = 'right',
+    relative_width = true,
+    width = 25,
+    auto_close = true,
+    show_numbers = false,
+    show_relative_numbers = false,
+    show_symbol_details = false,
+    autofold_depth = nil,
+    auto_unfold_hover = true,
+    fold_markers = { '', '' },
+    wrap = false,
+    keymaps = {
+      close = { "<Esc>", "q" },
+      goto_location = "<CR>",
+      focus_location = "o",
+      hover_symbol = "<C-space>",
+      toggle_preview = "K",
+      rename_symbol = "r",
+      code_actions = "a",
+      fold = "h",
+      unfold = "l",
+      fold_all = "W",
+      unfold_all = "E",
+      fold_reset = "R",
     },
   })
 end

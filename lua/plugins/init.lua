@@ -187,13 +187,9 @@ local plugins = {
   },
 
   {
-    "stevearc/aerial.nvim",
-    opts = {},
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
+    "windrivder/symbols-outline.nvim",
     config = function()
-      require("plugins.others").aerial()
+      require("plugins.others").outline()
     end
   },
 
