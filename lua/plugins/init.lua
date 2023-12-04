@@ -226,10 +226,28 @@ local plugins = {
     'natecraddock/workspaces.nvim',
     config = function()
       require("workspaces").setup({
-        path = vim.fn.stdpath("data") .. "/workspaces/data"
+        path = vim.fn.stdpath("data") .. "/projects/data",
+        hooks = {
+          open = function()
+            require("session_manager").load_current_dir_session()
+          end
+        }
       })
     end
-  }
+  },
+  {
+    'Shatur/neovim-session-manager',
+    config = function()
+      local Path = require('plenary.path')
+      local config = require('session_manager.config')
+      require("session_manager").setup({
+        sessions_dir = Path:new(vim.fn.stdpath('data'), 'sessions'),
+        autosave_last_session = false,
+        autosave_only_in_session = true,
+        autoload_mode = config.AutoloadMode.CurrentDir,
+      })
+    end
+  },
 }
 
 -- Load all plugins

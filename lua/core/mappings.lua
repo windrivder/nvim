@@ -130,7 +130,7 @@ M.lazy = {
     ["<leader>ps"] = { "<cmd> Lazy sync<CR>", "sync package" },
     ["<leader>pu"] = { "<cmd> Lazy update<CR>", "update package" },
     ["<leader>px"] = { "<cmd> Lazy clean<CR>", "clean package" },
-    ["<leader>pl"] = { "<cmd> Lazy restore<CR>", "restore package" },
+    -- ["<leader>pl"] = { "<cmd> Lazy restore<CR>", "restore package" },
     ["<leader>pp"] = { "<cmd> Lazy profile<CR>", "profile package" },
     ["<leader>pi"] = { "<cmd> Lazy install<CR>", "install package" },
   }
@@ -192,6 +192,14 @@ M.project = {
     ["<leader>pr"] = { "<cmd> WorkspacesRemove <CR>", "remove workspace" },
     ["<leader>pl"] = { "<cmd> WorkspacesList <CR>", "list workspace" },
 
+  }
+}
+
+M.session = {
+  n = {
+    ["<leader>sl"] = { "<cmd> lua require('session_manager').load_session() <CR>", "load session" },
+    ["<leader>sa"] = { "<cmd> lua require('session_manager').save_current_session() <CR>", "save session" },
+    ["<leader>sd"] = { "<cmd> lua require('session_manager').delete_session() <CR>", "delete session" },
   }
 }
 
