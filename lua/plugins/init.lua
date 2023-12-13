@@ -40,7 +40,7 @@ local plugins = {
   },
 
   -- dap bugger
-  {
+  --[[ {
     "mfussenegger/nvim-dap",
     dependencies = {
       "rcarriga/nvim-dap-ui",
@@ -51,7 +51,7 @@ local plugins = {
     config = function()
       require("plugins.ndap")
     end
-  },
+  }, ]]
 
   --[[ {
 
@@ -94,6 +94,7 @@ local plugins = {
   --   end,
   -- },
 
+  -- ui
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
@@ -125,6 +126,7 @@ local plugins = {
     lazy = true,
   },
 
+  -- quickly move: s char char
   {
     "ggandor/leap.nvim",
     config = function()
@@ -140,6 +142,15 @@ local plugins = {
     end,
   },
 
+  --[[ Old text                    Command         New text
+--------------------------------------------------------------------------------
+    surr*ound_words             ysiw)           (surround_words)
+    *make strings               ys$"            "make strings"
+    [delete ar*ound me!]        ds]             delete around me!
+    remove <b>HTML t*ags</b>    dst             remove HTML tags
+    'change quot*es'            cs'"            "change quotes"
+    <b>or tag* types</b>        csth1<CR>       <h1>or tag types</h1>
+    delete(functi*on calls)     dsf             function calls ]]
   {
     "kylechui/nvim-surround",
     event = "InsertEnter",
@@ -160,13 +171,13 @@ local plugins = {
     end,
   },
 
-  {
+  --[[ {
     "rest-nvim/rest.nvim",
     ft = "http",
     config = function()
       require("plugins.others").rest()
     end
-  },
+  }, ]]
 
   {
     "olexsmir/gopher.nvim",
@@ -205,13 +216,13 @@ local plugins = {
     end,
   },
 
-  {
+  --[[ {
     'goolord/alpha-nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require("plugins.others").alpha()
     end
-  },
+  }, ]]
 
   {
     'akinsho/bufferline.nvim',

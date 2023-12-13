@@ -157,14 +157,14 @@ M.outline = function()
     show_guides = true,
     auto_preview = false,
     position = 'right',
-    relative_width = true,
+    relative_width = false,
     width = 25,
-    auto_close = true,
+    auto_close = false,
     show_numbers = false,
     show_relative_numbers = false,
     show_symbol_details = false,
     autofold_depth = nil,
-    auto_unfold_hover = true,
+    auto_unfold_hover = false,
     fold_markers = { '', '' },
     wrap = false,
     keymaps = {
@@ -193,6 +193,7 @@ M.refactoring = function()
       c = true,
       java = true,
       python = true,
+      rust = true,
     },
     -- prompt for function parameters
     prompt_func_param_type = {
@@ -201,6 +202,7 @@ M.refactoring = function()
       c = true,
       java = true,
       python = true,
+      rust = true,
     },
   })
 end

@@ -118,16 +118,10 @@ M.toggleterm = {
   },
 }
 
-M.rest = {
-  n = {
-    ["<leader>r"] = { "<Plug>RestNvim", "run the request under the cursor" }
-  }
-}
-
 M.lazy = {
   n = {
     ["<leader>ph"] = { "<cmd> Lazy <CR>", "show package" },
-    ["<leader>ps"] = { "<cmd> Lazy sync<CR>", "sync package" },
+    -- ["<leader>ps"] = { "<cmd> Lazy sync<CR>", "sync package" },
     ["<leader>pu"] = { "<cmd> Lazy update<CR>", "update package" },
     ["<leader>px"] = { "<cmd> Lazy clean<CR>", "clean package" },
     -- ["<leader>pl"] = { "<cmd> Lazy restore<CR>", "restore package" },
@@ -140,11 +134,12 @@ M.other = {
   n = {
     ["<leader>gb"] = { [[<cmd> GitBlameToggle <CR>]], "toggle gitblame" },
     ["<leader>t"] = { [[<cmd> SymbolsOutline <CR>]], "toggle outline" },
-    ["<leader>a"] = { [[<cmd> Alpha <CR>]], "toggle dashboard" },
+    -- ["<leader>a"] = { [[<cmd> Alpha <CR>]], "toggle dashboard" },
+    -- ["<leader>r"] = { "<Plug>RestNvim", "run the request under the cursor" }
   }
 }
 
-M.dap = {
+--[[ M.dap = {
   n = {
     ["<leader>ds"] = { "<cmd> lua require('dap').continue() <CR>", "dap.continue" },
     ["<leader>dc"] = { "<cmd> lua require('dap').step_over() <CR>", "dap.step_over" },
@@ -155,7 +150,7 @@ M.dap = {
     ["<leader>dt"] = { "<cmd> lua require('dap').terminate() <CR>", "dap.terminate" },
     ["<leader>dh"] = { "<cmd> lua require('dapui').toggle() <CR>", "dap.ui.toggle" },
   }
-}
+} ]]
 
 M.refactoring = {
   n = {
