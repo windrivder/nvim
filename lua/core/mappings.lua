@@ -154,14 +154,16 @@ M.other = {
 
 M.refactoring = {
   n = {
-    ["<leader>re"] = { "<cmd> lua require('refactoring').refactor('Extract Function') <CR>", "refactor.extract_function" },
-    ["<leader>rf"] = { "<cmd> lua require('refactoring').refactor('Extract Function To File') <CR>", "refactor.extract_function_to_file" },
-    ["<leader>rv"] = { "<cmd> lua require('refactoring').refactor('Extract Variable') <CR>", "refactor.extract_variable" },
     ["<leader>rI"] = { "<cmd> lua require('refactoring').refactor('Inline Function') <CR>", "refactor.inline_function" },
     ["<leader>ri"] = { "<cmd> lua require('refactoring').refactor('Inline Variable') <CR>", "refactor.inline_variable" },
     ["<leader>rb"] = { "<cmd> lua require('refactoring').refactor('Extract Block') <CR>", "refactor.extract_block" },
     ["<leader>rbf"] = { "<cmd> lua require('refactoring').refactor('Extract Block To File') <CR>", "refactor.extract_block_to_file" },
 
+  },
+  v = {
+    ["<leader>re"] = { "<cmd> lua require('refactoring').refactor('Extract Function') <CR>", "refactor.extract_function" },
+    ["<leader>rf"] = { "<cmd> lua require('refactoring').refactor('Extract Function To File') <CR>", "refactor.extract_function_to_file" },
+    ["<leader>rv"] = { "<cmd> lua require('refactoring').refactor('Extract Variable') <CR>", "refactor.extract_variable" },
   }
 }
 
