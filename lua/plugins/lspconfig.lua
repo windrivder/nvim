@@ -66,6 +66,8 @@ nvim_lsp.pylsp.setup {
     pylsp = {
       plugins = {
         pyls_black = { enabled = true },
+        pycodestyle = { enabled = true },
+        autopep8 = { enabled = true },
         isort = { enabled = true, profile = "black" },
       }
     }
