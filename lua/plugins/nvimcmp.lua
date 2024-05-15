@@ -84,6 +84,7 @@ local options = {
         Watch = " ",
         Package = "",
         Codeium = " ",
+        Copilot = " ",
       }
       vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
       return vim_item
@@ -91,6 +92,7 @@ local options = {
   },
   sources = {
     -- { name = "codeium" },
+    { name = "copilot" },
     { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = "buffer" },
