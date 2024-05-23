@@ -34,10 +34,23 @@ local plugins = {
       "ray-x/cmp-treesitter",
     },
     config = function()
-      -- require("codeium").setup({})
       require "plugins.nvimcmp"
     end
   },
+
+  -- {
+  --   "Exafunction/codeium.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "hrsh7th/nvim-cmp",
+  --   },
+  --   config = function()
+  --     require("codeium").setup({
+  --       detect_proxy = false,
+  --       enable_chat = true,
+  --     })
+  --   end
+  -- },
 
   -- dap bugger
   --[[ {
@@ -53,17 +66,6 @@ local plugins = {
     end
   }, ]]
 
-  --[[ {
-
-    "jcdickinson/codeium.nvim",
-    dependencies = {
-      "jcdickinson/http.nvim",
-      build = "cargo build --workspace --release"
-    },
-    config = function()
-      require("codeium").setup({})
-    end
-  }, ]]
 
   {
     "rafamadriz/friendly-snippets",
@@ -287,7 +289,7 @@ local plugins = {
     config = function()
       require("chatgpt").setup({
         openai_params = {
-          model = "gpt-3.5-turbo",
+          model = "gpt-4o",
           frequency_penalty = 0,
           presence_penalty = 0,
           max_tokens = 1024,

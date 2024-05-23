@@ -83,7 +83,7 @@ local options = {
         Calendar = "",
         Watch = " ",
         Package = "",
-        Codeium = " ",
+        -- Codeium = " ",
         Copilot = " ",
       }
       vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
