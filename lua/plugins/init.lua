@@ -1,7 +1,5 @@
 local plugins = {
-  { "nvim-lua/plenary.nvim",   module = "plenary" },
-
-  { "lewis6991/impatient.nvim" },
+  { "nvim-lua/plenary.nvim", module = "plenary" },
 
   -- lsp stuff
   {
@@ -38,34 +36,6 @@ local plugins = {
     end
   },
 
-  -- {
-  --   "Exafunction/codeium.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "hrsh7th/nvim-cmp",
-  --   },
-  --   config = function()
-  --     require("codeium").setup({
-  --       detect_proxy = false,
-  --       enable_chat = true,
-  --     })
-  --   end
-  -- },
-
-  -- dap bugger
-  --[[ {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-      "rcarriga/nvim-dap-ui",
-      "theHamsta/nvim-dap-virtual-text",
-      "mfussenegger/nvim-dap-python",
-      "leoluz/nvim-dap-go",
-    },
-    config = function()
-      require("plugins.ndap")
-    end
-  }, ]]
-
   {
     "rafamadriz/friendly-snippets",
     module = { "cmp", "cmp_nvim_lsp" },
@@ -88,13 +58,6 @@ local plugins = {
     end
   },
 
-  -- {
-  --   "glepnir/lspsaga.nvim",
-  --   config = function()
-  --     require("plugins.others").lspsaga()
-  --   end,
-  -- },
-
   -- ui
   {
     "stevearc/dressing.nvim",
@@ -113,17 +76,17 @@ local plugins = {
     end,
   },
 
-  {
-    "windrivder/fzf-lua",
-    lazy = true,
-  },
-
   -- quickly move: s char char
   {
     "ggandor/leap.nvim",
     config = function()
       require('leap').add_default_mappings()
     end,
+  },
+
+  {
+    "windrivder/fzf-lua",
+    lazy = true,
   },
 
   {
@@ -163,14 +126,6 @@ local plugins = {
     end,
   },
 
-  --[[ {
-    "rest-nvim/rest.nvim",
-    ft = "http",
-    config = function()
-      require("plugins.others").rest()
-    end
-  }, ]]
-
   {
     "ray-x/go.nvim",
     dependencies = { -- optional packages
@@ -183,60 +138,8 @@ local plugins = {
     end,
     event = { "CmdlineEnter" },
     ft = { "go", 'gomod' },
-    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    build = ':lua require("go.install").update_all_sync()'
   },
-
-  {
-    "f-person/git-blame.nvim",
-    config = function()
-      require("gitblame").setup({
-        enabled = false,
-        date_format = '%y:%m:%d'
-      })
-    end
-  },
-
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({})
-    end,
-  },
-
-  {
-    "zbirenbaum/copilot-cmp",
-    config = function()
-      require("copilot_cmp").setup()
-    end
-  },
-
-  {
-    "windrivder/symbols-outline.nvim",
-    config = function()
-      require("plugins.others").outline()
-    end
-  },
-
-  {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      require("plugins.others").refactoring()
-    end,
-  },
-
-  --[[ {
-    'goolord/alpha-nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      require("plugins.others").alpha()
-    end
-  }, ]]
 
   {
     'akinsho/bufferline.nvim',
@@ -247,6 +150,7 @@ local plugins = {
     end
   },
 
+  -- workspace and session manager
   -- {
   --   'natecraddock/workspaces.nvim',
   --   config = function()
@@ -273,29 +177,69 @@ local plugins = {
   --     })
   --   end
   -- },
-  {
-    "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("chatgpt").setup({
-        openai_params = {
-          model = "gpt-4o",
-          frequency_penalty = 0,
-          presence_penalty = 0,
-          max_tokens = 1024,
-          temperature = 0,
-          top_p = 1,
-          n = 1,
-        },
-      })
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "folke/trouble.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  },
+
+  -- {
+  --   "f-person/git-blame.nvim",
+  --   config = function()
+  --     require("gitblame").setup({
+  --       enabled = false,
+  --       date_format = '%y:%m:%d'
+  --     })
+  --   end
+  -- },
+
+  -- {
+  --   "jackMort/ChatGPT.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("chatgpt").setup({
+  --       openai_params = {
+  --         model = "gpt-4o",
+  --         frequency_penalty = 0,
+  --         presence_penalty = 0,
+  --         max_tokens = 1024,
+  --         temperature = 0,
+  --         top_p = 1,
+  --         n = 1,
+  --       },
+  --     })
+  --   end,
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "folke/trouble.nvim",
+  --     "nvim-telescope/telescope.nvim"
+  --   }
+  -- },
+
+  -- {
+  --   "Exafunction/codeium.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "hrsh7th/nvim-cmp",
+  --   },
+  --   config = function()
+  --     require("codeium").setup({
+  --       detect_proxy = false,
+  --       enable_chat = true,
+  --     })
+  --   end
+  -- },
+
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require("copilot").setup({})
+  --   end,
+  -- },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end
+  -- },
 }
 
 -- Load all plugins

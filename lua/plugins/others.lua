@@ -29,6 +29,13 @@ M.luasnip = function()
 end
 
 M.lspsaga = function()
+  -- {
+  --   "glepnir/lspsaga.nvim",
+  --   config = function()
+  --     require("plugins.others").lspsaga()
+  --   end,
+  -- },
+
   require("lspsaga").setup({
     diagnostic = {
       icon = '💡',
@@ -111,6 +118,14 @@ M.custom_term = function(exec_name)
 end
 
 M.rest = function()
+  -- {
+  --   "rest-nvim/rest.nvim",
+  --   ft = "http",
+  --   config = function()
+  --     require("plugins.others").rest()
+  --   end
+  -- },
+
   local present, rest = pcall(require, "rest-nvim")
 
   if not present then
@@ -208,6 +223,14 @@ M.refactoring = function()
 end
 
 M.alpha = function()
+  -- {
+  --   'goolord/alpha-nvim',
+  --   dependencies = { 'nvim-tree/nvim-web-devicons' },
+  --   config = function()
+  --     require("plugins.others").alpha()
+  --   end
+  -- },
+
   local alpha = require('alpha')
   local startify = require('alpha.themes.startify')
   startify.section.header.val = {

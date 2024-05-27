@@ -132,8 +132,8 @@ M.lazy = {
 
 M.other = {
   n = {
-    ["<leader>gb"] = { [[<cmd> GitBlameToggle <CR>]], "toggle gitblame" },
-    ["<leader>t"] = { [[<cmd> SymbolsOutline <CR>]], "toggle outline" },
+    -- ["<leader>gb"] = { [[<cmd> GitBlameToggle <CR>]], "toggle gitblame" },
+    -- ["<leader>t"] = { [[<cmd> SymbolsOutline <CR>]], "toggle outline" },
     ["<leader>c"] = { [[<cmd> ChatGPT <CR>]], "toggle chatgpt" },
     -- ["<leader>a"] = { [[<cmd> Alpha <CR>]], "toggle dashboard" },
     -- ["<leader>r"] = { "<Plug>RestNvim", "run the request under the cursor" }

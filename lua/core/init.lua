@@ -100,7 +100,7 @@ autocmd({ 'BufWritePre' }, {
   end
 })
 
-if pcall(require, 'vim.ui.clipboard.osc52') then
+if vim.uv.os_uname().sysname == "Linux" and pcall(require, 'vim.ui.clipboard.osc52') then
   vim.g.clipboard = {
     name = "OSC 52",
     copy = {

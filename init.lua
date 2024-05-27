@@ -25,3 +25,6 @@ require "plugins"
 vim.defer_fn(function()
   require "core.mappings"
 end, 0)
+
+-- improve startup time
+vim.loader.enable()
