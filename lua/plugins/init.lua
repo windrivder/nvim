@@ -66,7 +66,6 @@ local plugins = {
     end
   }, ]]
 
-
   {
     "rafamadriz/friendly-snippets",
     module = { "cmp", "cmp_nvim_lsp" },
@@ -103,15 +102,6 @@ local plugins = {
     config = function()
       require("dressing").setup({})
     end
-  },
-
-  {
-    "numToStr/Comment.nvim",
-    event = "BufReadPost",
-    keys = { "gc", "gb" },
-    config = function()
-      require("Comment").setup()
-    end,
   },
 
   {

@@ -99,3 +99,21 @@ autocmd({ 'BufWritePre' }, {
     session.save_current_session()
   end
 })
+
+if pcall(require, 'vim.ui.clipboard.osc52') then
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy('+'),
+      ["*"] = require("vim.ui.clipboard.osc52").copy('*'),
+    },
+    paste = {
+      -- Waiting for OSC 52 response from the terminal. Press Ctrl-C to interrupt...
+      -- https://github.com/neovim/neovim/pull/25872#issuecomment-1808182953
+      -- ["+"] = require("vim.ui.clipboard.osc52").paste('+'),
+      -- ["*"] = require("vim.ui.clipboard.osc52").paste('*'),
+      ["+"] = function() end,
+      ["*"] = function() end,
+    },
+  }
+end
