@@ -16,6 +16,7 @@ local options = {
     "typescript-language-server",
     "json-lsp",
     "bash-language-server",
+    "taplo",
   },
   PATH = "skip",
   ui = {
