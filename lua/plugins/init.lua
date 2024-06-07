@@ -85,7 +85,7 @@ local plugins = {
   },
 
   {
-    "windrivder/fzf-lua",
+    "ibhagwan/fzf-lua",
     lazy = true,
   },
 
@@ -149,97 +149,6 @@ local plugins = {
       require("plugins.others").bufferline()
     end
   },
-
-  -- workspace and session manager
-  -- {
-  --   'natecraddock/workspaces.nvim',
-  --   config = function()
-  --     require("workspaces").setup({
-  --       path = vim.fn.stdpath("data") .. "/projects/data",
-  --       hooks = {
-  --         open = function()
-  --           require("session_manager").load_current_dir_session()
-  --         end
-  --       }
-  --     })
-  --   end
-  -- },
-  -- {
-  --   'Shatur/neovim-session-manager',
-  --   config = function()
-  --     local Path = require('plenary.path')
-  --     local config = require('session_manager.config')
-  --     require("session_manager").setup({
-  --       sessions_dir = Path:new(vim.fn.stdpath('data'), 'sessions'),
-  --       autosave_last_session = false,
-  --       autosave_only_in_session = true,
-  --       autoload_mode = config.AutoloadMode.CurrentDir,
-  --     })
-  --   end
-  -- },
-
-  -- {
-  --   "f-person/git-blame.nvim",
-  --   config = function()
-  --     require("gitblame").setup({
-  --       enabled = false,
-  --       date_format = '%y:%m:%d'
-  --     })
-  --   end
-  -- },
-
-  -- {
-  --   "jackMort/ChatGPT.nvim",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("chatgpt").setup({
-  --       openai_params = {
-  --         model = "gpt-4o",
-  --         frequency_penalty = 0,
-  --         presence_penalty = 0,
-  --         max_tokens = 1024,
-  --         temperature = 0,
-  --         top_p = 1,
-  --         n = 1,
-  --       },
-  --     })
-  --   end,
-  --   dependencies = {
-  --     "MunifTanjim/nui.nvim",
-  --     "nvim-lua/plenary.nvim",
-  --     "folke/trouble.nvim",
-  --     "nvim-telescope/telescope.nvim"
-  --   }
-  -- },
-
-  -- {
-  --   "Exafunction/codeium.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "hrsh7th/nvim-cmp",
-  --   },
-  --   config = function()
-  --     require("codeium").setup({
-  --       detect_proxy = false,
-  --       enable_chat = true,
-  --     })
-  --   end
-  -- },
-
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   event = "InsertEnter",
-  --   config = function()
-  --     require("copilot").setup({})
-  --   end,
-  -- },
-  -- {
-  --   "zbirenbaum/copilot-cmp",
-  --   config = function()
-  --     require("copilot_cmp").setup()
-  --   end
-  -- },
 }
 
 -- Load all plugins

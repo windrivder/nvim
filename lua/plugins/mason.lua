@@ -6,17 +6,18 @@ end
 
 local options = {
   ensure_installed = {
-    "clangd",
-    "rust-analyzer",
-    "python-lsp-server",
-    "gopls",
-    "lua-language-server",
-    "svelte-language-server",
-    "vue-language-server",
-    "typescript-language-server",
-    "json-lsp",
+    "yaml-language-server",
     "bash-language-server",
+    "clangd",
+    "gopls",
+    "json-lsp",
+    "lua-language-server",
+    "python-lsp-server",
+    "rust-analyzer",
+    "svelte-language-server",
     "taplo",
+    "typescript-language-server",
+    "vue-language-server",
   },
   PATH = "skip",
   ui = {

@@ -82,24 +82,6 @@ autocmd("BufWritePre", {
   end
 })
 
--- auto save session
-autocmd({ 'BufWritePre' }, {
-  callback = function()
-    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-      -- Don't save while there's any 'nofile' buffer open.
-      if vim.api.nvim_get_option_value("buftype", { buf = buf }) == 'nofile' then
-        return
-      end
-    end
-
-    local present, session = pcall(require, "session_manager")
-    if not present then
-      return
-    end
-    session.save_current_session()
-  end
-})
-
 if vim.uv.os_uname().sysname == "Linux" and pcall(require, 'vim.ui.clipboard.osc52') then
   vim.g.clipboard = {
     name = "OSC 52",
@@ -108,12 +90,8 @@ if vim.uv.os_uname().sysname == "Linux" and pcall(require, 'vim.ui.clipboard.osc
       ["*"] = require("vim.ui.clipboard.osc52").copy('*'),
     },
     paste = {
-      -- Waiting for OSC 52 response from the terminal. Press Ctrl-C to interrupt...
-      -- https://github.com/neovim/neovim/pull/25872#issuecomment-1808182953
-      -- ["+"] = require("vim.ui.clipboard.osc52").paste('+'),
-      -- ["*"] = require("vim.ui.clipboard.osc52").paste('*'),
-      ["+"] = function() end,
-      ["*"] = function() end,
+      ["+"] = require("vim.ui.clipboard.osc52").paste('+'),
+      ["*"] = require("vim.ui.clipboard.osc52").paste('*'),
     },
   }
 end

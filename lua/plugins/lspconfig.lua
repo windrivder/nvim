@@ -46,6 +46,7 @@ local servers = {
   "jsonls",
   "bashls",
   "taplo",
+  "yamlls",
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
