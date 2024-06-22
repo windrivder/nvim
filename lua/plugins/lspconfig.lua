@@ -41,12 +41,11 @@ local servers = {
   "clangd",
   "rust_analyzer",
   "tsserver",
-  "svelte",
-  "vuels",
-  "jsonls",
   "bashls",
   "taplo",
   "yamlls",
+  "html",
+  "biome",
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
