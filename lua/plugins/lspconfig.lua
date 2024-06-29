@@ -46,6 +46,7 @@ local servers = {
   "yamlls",
   "html",
   "biome",
+  "prismals",
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -141,7 +142,6 @@ nvim_lsp.gopls.setup {
       staticcheck = true,
       usePlaceholders = false,
       completeUnimported = true,
-      allowImplicitNetworkAccess = true,
       gofumpt = true,
     }
   },
