@@ -40,7 +40,6 @@ local flags = { debounce_text_changes = 150 }
 local servers = {
   "clangd",
   "rust_analyzer",
-  "tsserver",
   "bashls",
   "taplo",
   "yamlls",
@@ -58,6 +57,28 @@ for _, lsp in ipairs(servers) do
 end
 
 local util = require("lspconfig/util")
+
+local mason_registry = require('mason-registry')
+local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() ..
+'/node_modules/@vue/language-server'
+
+nvim_lsp.tsserver.setup {
+  on_attach = M.on_attach,
+  capabilities = capabilities,
+  single_file_support = true,
+  flags = flags,
+
+  init_options = {
+    plugins = {
+      {
+        name = '@vue/typescript-plugin',
+        location = vue_language_server_path,
+        languages = { 'vue' },
+      },
+    },
+  },
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+}
 
 nvim_lsp.pylsp.setup {
   on_attach = M.on_attach,
