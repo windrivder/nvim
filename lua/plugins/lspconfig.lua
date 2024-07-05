@@ -44,8 +44,7 @@ local servers = {
   "taplo",
   "yamlls",
   "html",
-  "biome",
-  "prismals",
+  "jsonls"
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -60,7 +59,7 @@ local util = require("lspconfig/util")
 
 local mason_registry = require('mason-registry')
 local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() ..
-'/node_modules/@vue/language-server'
+    '/node_modules/@vue/language-server'
 
 nvim_lsp.tsserver.setup {
   on_attach = M.on_attach,
