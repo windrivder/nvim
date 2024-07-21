@@ -6,7 +6,6 @@ end
 
 local options = {
   ensure_installed = {
-    "prisma-language-server",
     "yaml-language-server",
     "bash-language-server",
     "clangd",
