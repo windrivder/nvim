@@ -35,7 +35,7 @@ autocmd("BufEnter", {
 autocmd("FileType", {
   pattern = {
     "javascript", "typescript", "lua",
-    "html", "css",
+    "tsx", "html", "css",
     "xml", "yaml", "json",
   },
   command = "setlocal et sta sw=2 ts=2 sts=2"
