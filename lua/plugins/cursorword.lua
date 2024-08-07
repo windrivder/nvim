@@ -8,11 +8,11 @@ local H = {}
 ---@usage `require('mini.cursorword').setup({})` (replace `{}` with your `config` table)
 MiniCursorword.setup = function(config)
   -- TODO: Remove after Neovim<=0.6 support is dropped
-  if vim.fn.has('nvim-0.7') == 0 then
+  if vim.fn.has "nvim-0.7" == 0 then
     vim.notify(
-      '(mini.cursorword) Neovim<0.7 is soft deprecated (module works but not supported).'
-      .. ' It will be deprecated after Neovim 0.9.0 release (module will not work).'
-      .. ' Please update your Neovim version.'
+      "(mini.cursorword) Neovim<0.7 is soft deprecated (module works but not supported)."
+        .. " It will be deprecated after Neovim 0.9.0 release (module will not work)."
+        .. " Please update your Neovim version."
     )
   end
 
@@ -37,9 +37,9 @@ MiniCursorword.setup = function(config)
     false
   )
 
-  if vim.fn.exists('##ModeChanged') == 1 then
+  if vim.fn.exists "##ModeChanged" == 1 then
     vim.api.nvim_exec(
-    -- Call `auto_highlight` on mode change to respect `minicursorword_disable`
+      -- Call `auto_highlight` on mode change to respect `minicursorword_disable`
       [[augroup MiniCursorword
           au ModeChanged *:[^i] lua MiniCursorword.auto_highlight()
         augroup END]],
@@ -138,20 +138,24 @@ H.window_matches = {}
 H.setup_config = function(config)
   -- General idea: if some table elements are not present in user-supplied
   -- `config`, take them from default config
-  vim.validate({ config = { config, 'table', true } })
-  config = vim.tbl_deep_extend('force', H.default_config, config or {})
+  vim.validate { config = { config, "table", true } }
+  config = vim.tbl_deep_extend("force", H.default_config, config or {})
 
-  vim.validate({ delay = { config.delay, 'number' } })
+  vim.validate { delay = { config.delay, "number" } }
 
   return config
 end
 
-H.apply_config = function(config) MiniCursorword.config = config end
+H.apply_config = function(config)
+  MiniCursorword.config = config
+end
 
-H.is_disabled = function() return vim.g.minicursorword_disable == true or vim.b.minicursorword_disable == true end
+H.is_disabled = function()
+  return vim.g.minicursorword_disable == true or vim.b.minicursorword_disable == true
+end
 
 H.get_config = function(config)
-  return vim.tbl_deep_extend('force', MiniCursorword.config, vim.b.minicursorword_config or {}, config or {})
+  return vim.tbl_deep_extend("force", MiniCursorword.config, vim.b.minicursorword_config or {}, config or {})
 end
 
 -- Highlighting ---------------------------------------------------------------
@@ -164,17 +168,21 @@ H.highlight = function(only_current)
   -- 'current word' highlighting: with `:match` it is higher than for
   -- `incsearch` which is not convenient.
   local win_id = vim.api.nvim_get_current_win()
-  if not vim.api.nvim_win_is_valid(win_id) then return end
+  if not vim.api.nvim_win_is_valid(win_id) then
+    return
+  end
 
   H.window_matches[win_id] = H.window_matches[win_id] or {}
 
   -- Add match highlight for current word under cursor
   local current_word_pattern = [[\k*\%#\k*]]
-  local match_id_current = vim.fn.matchadd('MiniCursorwordCurrent', current_word_pattern, -1)
+  local match_id_current = vim.fn.matchadd("MiniCursorwordCurrent", current_word_pattern, -1)
   H.window_matches[win_id].id_current = match_id_current
 
   -- Don't add main match id if not needed or if one is already present
-  if only_current or H.window_matches[win_id].id ~= nil then return end
+  if only_current or H.window_matches[win_id].id ~= nil then
+    return
+  end
 
   -- Add match highlight for non-current word under cursor. NOTEs:
   -- - Using `\(...\)\@!` allows to not match current word.
@@ -182,7 +190,7 @@ H.highlight = function(only_current)
   -- - Using `\<` and `\>` matches whole word (and not as part).
   local curword = H.get_cursor_word()
   local pattern = string.format([[\(%s\)\@!\&\V\<%s\>]], current_word_pattern, curword)
-  local match_id = vim.fn.matchadd('MiniCursorword', pattern, -1)
+  local match_id = vim.fn.matchadd("MiniCursorword", pattern, -1)
 
   -- Store information about highlight
   H.window_matches[win_id].id = match_id
@@ -196,7 +204,9 @@ H.unhighlight = function(only_current)
   -- Don't do anything if there is no valid information to act upon
   local win_id = vim.api.nvim_get_current_win()
   local win_match = H.window_matches[win_id]
-  if not vim.api.nvim_win_is_valid(win_id) or win_match == nil then return end
+  if not vim.api.nvim_win_is_valid(win_id) or win_match == nil then
+    return
+  end
 
   -- Use `pcall` because there is an error if match id is not present. It can
   -- happen if something else called `clearmatches`.
@@ -210,14 +220,16 @@ H.unhighlight = function(only_current)
 end
 
 H.is_cursor_on_keyword = function()
-  local col = vim.fn.col('.')
+  local col = vim.fn.col "."
   local curchar = vim.api.nvim_get_current_line():sub(col, col)
 
   -- Use `pcall()` to catch `E5108` (can happen in binary files, see #112)
-  local ok, match_res = pcall(vim.fn.match, curchar, '[[:keyword:]]')
+  local ok, match_res = pcall(vim.fn.match, curchar, "[[:keyword:]]")
   return ok and match_res >= 0
 end
 
-H.get_cursor_word = function() return vim.fn.escape(vim.fn.expand('<cword>'), [[\/]]) end
+H.get_cursor_word = function()
+  return vim.fn.escape(vim.fn.expand "<cword>", [[\/]])
+end
 
 return MiniCursorword

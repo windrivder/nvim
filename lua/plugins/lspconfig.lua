@@ -10,7 +10,7 @@ M.on_attach = function(client, bufnr)
   client.server_capabilities.documentFormattingProvider = true
   client.server_capabilities.documentRangeFormattingProvider = true
 
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
   if client.server_capabilities.signatureHelpProvider then
     require("plugins.signature").setup(client)
   end
@@ -44,7 +44,7 @@ local servers = {
   "taplo",
   "yamlls",
   "html",
-  "jsonls"
+  "jsonls",
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -55,11 +55,11 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-local util = require("lspconfig/util")
+local util = require "lspconfig/util"
 
-local mason_registry = require('mason-registry')
-local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() ..
-    '/node_modules/@vue/language-server'
+local mason_registry = require "mason-registry"
+local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
+  .. "/node_modules/@vue/language-server"
 
 nvim_lsp.tsserver.setup {
   on_attach = M.on_attach,
@@ -70,13 +70,13 @@ nvim_lsp.tsserver.setup {
   init_options = {
     plugins = {
       {
-        name = '@vue/typescript-plugin',
+        name = "@vue/typescript-plugin",
         location = vue_language_server_path,
-        languages = { 'vue' },
+        languages = { "vue" },
       },
     },
   },
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 }
 
 nvim_lsp.pylsp.setup {
@@ -91,10 +91,9 @@ nvim_lsp.pylsp.setup {
         pycodestyle = { enabled = true },
         autopep8 = { enabled = true },
         isort = { enabled = true, profile = "black" },
-      }
-    }
-  }
-
+      },
+    },
+  },
 }
 
 nvim_lsp.rust_analyzer.setup {
@@ -103,13 +102,13 @@ nvim_lsp.rust_analyzer.setup {
   single_file_support = true,
   flags = flags,
   settings = {
-    ['rust-analyzer'] = {
+    ["rust-analyzer"] = {
       standalone = true,
       checkOnSave = {
-        command = 'clippy'
-      }
-    }
-  }
+        command = "clippy",
+      },
+    },
+  },
 }
 
 nvim_lsp.lua_ls.setup {
@@ -127,7 +126,7 @@ nvim_lsp.lua_ls.setup {
         enable = true,
       },
       runtime = {
-        version = 'LuaJIT',
+        version = "LuaJIT",
       },
       workspace = {
         library = {
@@ -163,7 +162,7 @@ nvim_lsp.gopls.setup {
       usePlaceholders = false,
       completeUnimported = true,
       gofumpt = true,
-    }
+    },
   },
 }
 

@@ -41,7 +41,7 @@ local options = {
     "vue",
     "yaml",
     "http",
-    "vim"
+    "vim",
   },
   highlight = {
     enable = true,

@@ -17,6 +17,22 @@ local plugins = {
     end,
   },
 
+  {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    opts = {
+      formatters_by_ft = {
+        lua = { "stylua" },
+        python = { "ruff_format" },
+        rust = { "rustfmt", lsp_format = "fallback" },
+        go = { "goimports", "gofmt" },
+        c = { "clang-format" },
+        cpp = { "clang-format" },
+      },
+    },
+  },
+
   -- load luasnips + cmp related in insert mode only
   {
     "hrsh7th/nvim-cmp",
@@ -33,7 +49,7 @@ local plugins = {
     },
     config = function()
       require "plugins.nvimcmp"
-    end
+    end,
   },
 
   {
@@ -55,7 +71,7 @@ local plugins = {
     cmd = require("core.plugins").toggleterm_cmds,
     config = function()
       require("plugins.others").toggleterm()
-    end
+    end,
   },
 
   -- ui
@@ -63,8 +79,8 @@ local plugins = {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
     config = function()
-      require("dressing").setup({})
-    end
+      require("dressing").setup {}
+    end,
   },
 
   {
@@ -80,7 +96,7 @@ local plugins = {
   {
     "ggandor/leap.nvim",
     config = function()
-      require('leap').add_default_mappings()
+      require("leap").add_default_mappings()
     end,
   },
 
@@ -110,8 +126,8 @@ local plugins = {
     "kylechui/nvim-surround",
     event = "InsertEnter",
     config = function()
-      require("nvim-surround").setup({})
-    end
+      require("nvim-surround").setup {}
+    end,
   },
 
   {
@@ -137,8 +153,8 @@ local plugins = {
       require("go").setup()
     end,
     event = { "CmdlineEnter" },
-    ft = { "go", 'gomod' },
-    build = ':lua require("go.install").update_all_sync()'
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()',
   },
 
   {
@@ -148,12 +164,12 @@ local plugins = {
   },
 
   {
-    'akinsho/bufferline.nvim',
+    "akinsho/bufferline.nvim",
     version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("plugins.others").bufferline()
-    end
+    end,
   },
 }
 
@@ -161,8 +177,8 @@ local plugins = {
 local present, lazy = pcall(require, "lazy")
 if present then
   local opts = {
-    root = vim.fn.stdpath("data") .. "/lazy",
-    lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json"
+    root = vim.fn.stdpath "data" .. "/lazy",
+    lockfile = vim.fn.stdpath "data" .. "/lazy/lazy-lock.json",
   }
 
   lazy.setup(plugins, opts)

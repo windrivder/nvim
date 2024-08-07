@@ -65,7 +65,8 @@ M.lsp = {
     ["ga"] = { "<cmd> lua vim.lsp.buf.code_action() <CR>", "lsp code action" },
     ["gd"] = { "<cmd> lua vim.lsp.buf.definition() <CR>", "lsp definition" },
     ["gD"] = { "<cmd> lua vim.lsp.buf.type_definition() <CR>", "lsp type definition" },
-    ["ge"] = { "<cmd> lua vim.lsp.buf.format { async = true } <CR>", "lsp format" },
+    -- ["ge"] = { "<cmd> lua vim.lsp.buf.format { async = true } <CR>", "lsp format" },
+    ["ge"] = { "<cmd> lua require('conform').format({ lsp_fallback = true, async = true }) <CR>", "lsp format" },
     ["gr"] = { "<cmd> lua vim.lsp.buf.references() <CR>", "lsp references" },
     ["gi"] = { "<cmd> lua vim.lsp.buf.implementation() <CR>", "lsp implementation" },
     ["gs"] = { "<cmd> lua vim.lsp.buf.signature_help() <CR>", "lsp signature help" },
@@ -77,7 +78,7 @@ M.lsp = {
 M.nvimtree = {
   n = {
     ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
-  }
+  },
 }
 
 M.fzf = {
@@ -87,7 +88,7 @@ M.fzf = {
     ["<leader>o"] = { "<cmd> lua require('fzf-lua').buffers() <CR>", "search old files" },
     ["<leader>d"] = { "<cmd> lua require('fzf-lua').lsp_document_diagnostics() <CR>", "search old files" },
     ["<leader>s"] = { "<cmd> lua require('fzf-lua').lsp_document_symbols() <CR>", "search old files" },
-  }
+  },
 }
 
 M.toggleterm = {
@@ -111,7 +112,7 @@ M.lazy = {
     ["<leader>px"] = { "<cmd> Lazy clean<CR>", "clean package" },
     ["<leader>pp"] = { "<cmd> Lazy profile<CR>", "profile package" },
     ["<leader>pi"] = { "<cmd> Lazy install<CR>", "install package" },
-  }
+  },
 }
 
 M.bufferline = {
@@ -126,7 +127,7 @@ M.bufferline = {
     ["<leader>8"] = { "<cmd> lua require('bufferline').go_to(8, true) <CR>", "goto buffer 8" },
     ["<leader>9"] = { "<cmd> lua require('bufferline').go_to(9, true) <CR>", "goto buffer 9" },
     ["<leader>0"] = { "<cmd> lua require('bufferline').go_to(-1, true) <CR>", "goto last buffer" },
-  }
+  },
 }
 
 for _, sect in pairs(M) do

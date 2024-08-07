@@ -20,7 +20,7 @@ opt.visualbell = true
 
 -- theme
 opt.background = "dark"
-require("plugins.theme").setup("gruvbox")
+require("plugins.theme").setup "gruvbox"
 opt.termguicolors = true
 opt.syntax = "on"
 
@@ -92,7 +92,7 @@ opt.startofline = false
 
 opt.whichwrap:append "<>[]hl"
 opt.list = true
-opt.listchars = { tab = '⋅ ', nbsp = '+', extends = '→', precedes = '←' }
+opt.listchars = { tab = "⋅ ", nbsp = "+", extends = "→", precedes = "←" }
 opt.conceallevel = 0
 opt.concealcursor = "niv"
 

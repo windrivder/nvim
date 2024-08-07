@@ -19,8 +19,9 @@ M.luasnip = function()
 
   vim.api.nvim_create_autocmd("InsertLeave", {
     callback = function()
-      if require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-          and not require("luasnip").session.jump_active
+      if
+        require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+        and not require("luasnip").session.jump_active
       then
         require("luasnip").unlink_current()
       end
@@ -41,7 +42,7 @@ M.autopairs = function()
     disable_filetype = { "vim" },
     map_cr = true,
     map_complete = true,
-    auto_select = true
+    auto_select = true,
   }
 
   autopairs.setup(options)
@@ -71,16 +72,16 @@ M.toggleterm = function()
     terminal_mappings = true,
     hide_numbers = false,
     shade_terminals = false,
-    direction = 'tab',
+    direction = "tab",
   }
 
   toggleterm.setup(options)
 end
 
 M.custom_term = function(exec_name)
-  local Terminal = require('toggleterm.terminal').Terminal
+  local Terminal = require("toggleterm.terminal").Terminal
 
-  local term = Terminal:new({
+  local term = Terminal:new {
     cmd = exec_name,
     close_on_exit = true,
     hidden = true,
@@ -88,13 +89,13 @@ M.custom_term = function(exec_name)
     float_opts = {
       border = "single",
     },
-  })
+  }
   term:toggle()
 end
 
 M.bufferline = function()
-  local bufferline = require("bufferline")
-  bufferline.setup({
+  local bufferline = require "bufferline"
+  bufferline.setup {
     options = {
       mode = "buffers",
       themable = true,
@@ -110,8 +111,8 @@ M.bufferline = function()
       truncate_names = true,
       separator_style = "thin",
       enforce_regular_tabs = true,
-    }
-  })
+    },
+  }
 end
 
 return M
