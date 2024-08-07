@@ -16,6 +16,10 @@ local options = {
     "taplo",
     "typescript-language-server",
     "html-lsp",
+    "clang-format",
+    "vue-language-server",
+    "ruff",
+    "stylua",
   },
   PATH = "skip",
   ui = {
