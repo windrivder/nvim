@@ -2,29 +2,23 @@ vim.defer_fn(function()
   pcall(require, "impatient")
 end, 0)
 
--- core
-require "core"
-require "core.options"
-
 -- plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "git@github.com:folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  }
+if not vim.uv.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
 vim.opt.rtp:prepend(lazypath)
 require "plugins"
 
+-- core
+require "options"
+require "autocmds"
+
 -- mappings
-vim.defer_fn(function()
-  require "core.mappings"
-end, 0)
+vim.schedule(function()
+  require "mappings"
+end)
 
 -- improve startup time
 vim.loader.enable()

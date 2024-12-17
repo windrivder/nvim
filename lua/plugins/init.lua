@@ -1,19 +1,26 @@
 local plugins = {
-  { "nvim-lua/plenary.nvim", module = "plenary" },
+  "nvim-lua/plenary.nvim",
 
   -- lsp stuff
   {
     "williamboman/mason.nvim",
-    cmd = require("core.plugins").mason_cmds,
+    cmd = {
+      "Mason",
+      "MasonInstall",
+      "MasonInstallAll",
+      "MasonUninstall",
+      "MasonUninstallAll",
+      "MasonLog",
+    },
     config = function()
-      require "plugins.mason"
+      require "configs.mason"
     end,
   },
 
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require "plugins.lspconfig"
+      require "configs.lspconfig"
     end,
   },
 
@@ -51,7 +58,7 @@ local plugins = {
       "ray-x/cmp-treesitter",
     },
     config = function()
-      require "plugins.nvimcmp"
+      require "configs.nvimcmp"
     end,
   },
 
@@ -63,7 +70,7 @@ local plugins = {
   {
     "L3MON4D3/LuaSnip",
     config = function()
-      require("plugins.others").luasnip()
+      require("configs.others").luasnip()
     end,
   },
 
@@ -71,9 +78,16 @@ local plugins = {
   {
     "akinsho/toggleterm.nvim",
     lazy = true,
-    cmd = require("core.plugins").toggleterm_cmds,
+    cmd = {
+      "ToggleTerm",
+      "ToggleTermSetName",
+      "ToggleTermToggleAll",
+      "ToggleTermSendVisualLines",
+      "ToggleTermSendCurrentLine",
+      "ToggleTermSendVisualSelection",
+    },
     config = function()
-      require("plugins.others").toggleterm()
+      require("configs.others").toggleterm()
     end,
   },
 
@@ -82,7 +96,8 @@ local plugins = {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
     config = function()
-      require("dressing").setup {}
+      require("dressing").setup()
+      -- require("configs.cursorword").setup()
     end,
   },
 
@@ -91,7 +106,7 @@ local plugins = {
     lazy = true,
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function()
-      require "plugins.nvimtree"
+      require "configs.nvimtree"
     end,
   },
 
@@ -112,7 +127,7 @@ local plugins = {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function()
-      require("plugins.others").autopairs()
+      require("configs.others").autopairs()
     end,
   },
 
@@ -129,19 +144,27 @@ local plugins = {
     "kylechui/nvim-surround",
     event = "InsertEnter",
     config = function()
-      require("nvim-surround").setup {}
+      require("nvim-surround").setup()
     end,
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
     event = "BufReadPost",
-    cmd = require("core.plugins").treesitter_cmds,
+    cmd = {
+      "TSUpdate",
+      "TSInstall",
+      "TSBufEnable",
+      "TSBufDisable",
+      "TSEnable",
+      "TSDisable",
+      "TSModuleInfo",
+    },
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
     config = function()
-      require "plugins.treesitter"
+      require "configs.treesitter"
     end,
   },
 
@@ -152,12 +175,12 @@ local plugins = {
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function()
-      require("go").setup()
-    end,
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()',
+    config = function()
+      require("go").setup()
+    end,
   },
 
   {
@@ -171,7 +194,7 @@ local plugins = {
     version = "*",
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
-      require("plugins.others").bufferline()
+      require("configs.others").bufferline()
     end,
   },
 }

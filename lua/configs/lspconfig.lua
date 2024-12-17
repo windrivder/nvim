@@ -12,7 +12,7 @@ M.on_attach = function(client, bufnr)
 
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
   if client.server_capabilities.signatureHelpProvider then
-    require("plugins.signature").setup(client)
+    require("configs.signature").setup(client)
   end
 end
 

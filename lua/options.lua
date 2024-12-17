@@ -20,7 +20,7 @@ opt.visualbell = true
 
 -- theme
 opt.background = "dark"
-require("plugins.theme").setup "gruvbox"
+require("configs.theme").setup "gruvbox"
 opt.termguicolors = true
 opt.syntax = "on"
 
