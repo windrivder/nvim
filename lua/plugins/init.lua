@@ -131,6 +131,19 @@ local plugins = {
     end,
   },
 
+  -- open or close folds
+  {
+    "chrisgrieser/nvim-origami",
+    event = "VeryLazy",
+    opts = { hOnlyOpensOnFirstColumn = true },
+  },
+
+  -- smooth scrolling
+  -- {
+  --   "karb94/neoscroll.nvim",
+  --   opts = {},
+  -- },
+
   --[[ Old text                    Command         New text
 --------------------------------------------------------------------------------
     surr*ound_words             ysiw)           (surround_words)

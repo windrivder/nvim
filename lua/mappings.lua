@@ -15,8 +15,8 @@ map("i", "<C-k>", "<Up>", { desc = "move up" })
 
 map("n", "<", "<<", { desc = "< to <<" })
 map("n", ">", ">>", { desc = "> to >>" })
-map("n", "H", "0", { desc = "H to 0" })
-map("n", "L", "$", { desc = "L to $" })
+-- map("n", "H", "0", { desc = "H to 0" })
+-- map("n", "L", "$", { desc = "L to $" })
 map("n", "<C-e>", "%", { desc = "jump of symbol" })
 map("n", "<C-c>", "<cmd> %y+ <CR>", { desc = "general copy whole file" })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
@@ -99,3 +99,7 @@ map("n", "<leader>7", "<cmd> lua require('bufferline').go_to(7, true) <CR>", { d
 map("n", "<leader>8", "<cmd> lua require('bufferline').go_to(8, true) <CR>", { desc = "goto buffer 8" })
 map("n", "<leader>9", "<cmd> lua require('bufferline').go_to(9, true) <CR>", { desc = "goto buffer 9" })
 map("n", "<leader>0", "<cmd> lua require('bufferline').go_to(-1, true) <CR>", { desc = "goto last buffer" })
+
+-- opens and closes folds
+map("n", "H", "<cmd> lua require('origami').h() <CR>", { desc = "open folds" })
+map("n", "L", "<cmd> lua require('origami').l() <CR>", { desc = "close folds" })
