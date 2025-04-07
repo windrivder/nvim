@@ -135,7 +135,12 @@ local plugins = {
   {
     "chrisgrieser/nvim-origami",
     event = "VeryLazy",
-    opts = { hOnlyOpensOnFirstColumn = true },
+    opts = {
+      foldKeymaps = {
+        setup = true,
+        hOnlyOpensOnFirstColumn = true,
+      },
+    },
   },
 
   -- smooth scrolling

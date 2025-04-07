@@ -27,7 +27,7 @@ autocmd("BufEnter", {
 
 -- auto indent and space
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "typescript", "html", "css", "xml", "json", "yaml", "vue" },
+  pattern = { "javascript", "typescript", "html", "css", "xml", "json", "yaml", "vue", "wxml" },
   callback = function()
     vim.opt_local.expandtab = true
     vim.opt_local.softtabstop = 2
