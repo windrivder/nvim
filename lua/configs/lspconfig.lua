@@ -57,9 +57,10 @@ end
 
 local util = require "lspconfig/util"
 
-local mason_registry = require "mason-registry"
-local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-  .. "/node_modules/@vue/language-server"
+local vue_language_server_path = vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin"
+-- local mason_registry = require "mason-registry"
+-- local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
+--   .. "/node_modules/@vue/language-server"
 
 nvim_lsp.ts_ls.setup {
   on_attach = M.on_attach,
