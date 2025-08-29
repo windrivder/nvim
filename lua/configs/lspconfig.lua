@@ -158,6 +158,8 @@ nvim_lsp.gopls.setup {
         shadow = false,
         unusedparams = false,
         unusewrites = true,
+        ST1000 = false,  -- 包注释不正确或缺失
+        ST1020 = false, -- 导出函数的文档应以函数名称开头
       },
       staticcheck = true,
       usePlaceholders = false,
