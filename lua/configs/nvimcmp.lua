@@ -85,6 +85,7 @@ local options = {
         Package = "",
         -- Codeium = " ",
         Copilot = " ",
+        Supermaven = "",
       }
       vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
       return vim_item
@@ -93,6 +94,7 @@ local options = {
   sources = {
     -- { name = "codeium" },
     -- { name = "copilot" },
+    { name = "supermaven" },
     { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = "buffer" },
