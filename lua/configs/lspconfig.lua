@@ -1,11 +1,7 @@
-local present, nvim_lsp = pcall(require, "lspconfig")
-
-if not present then
-  return
-end
-
+-- LSP 通用配置
 local M = {}
 
+-- 通用 on_attach 函数
 M.on_attach = function(client, bufnr)
   client.server_capabilities.documentFormattingProvider = true
   client.server_capabilities.documentRangeFormattingProvider = true
@@ -16,8 +12,9 @@ M.on_attach = function(client, bufnr)
   end
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem = {
+-- 通用 capabilities
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities.textDocument.completion.completionItem = {
   documentationFormat = { "markdown", "plaintext" },
   snippetSupport = true,
   preselectSupport = true,
@@ -35,138 +32,27 @@ capabilities.textDocument.completion.completionItem = {
   },
 }
 
-local flags = { debounce_text_changes = 150 }
+-- 通用 flags
+M.flags = { debounce_text_changes = 150 }
 
-local servers = {
-  "clangd",
-  "rust_analyzer",
-  "bashls",
-  "taplo",
-  "yamlls",
-  "html",
-  "jsonls",
-}
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = M.on_attach,
-    capabilities = capabilities,
-    single_file_support = true,
-    flags = flags,
+M.defaults = function()
+  local servers = {
+    "clangd",
+    "rust_analyzer",
+    "bashls",
+    "taplo",
+    "yamlls",
+    "html",
+    "jsonls",
+    "ts_ls",
+    "pylsp",
+    "rust_analyzer",
+    "lua_ls",
+    "gopls",
   }
+  for _, server in ipairs(servers) do
+    vim.lsp.enable(server)
+  end 
 end
-
-local util = require "lspconfig/util"
-
-local vue_language_server_path = vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin"
--- local mason_registry = require "mason-registry"
--- local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
---   .. "/node_modules/@vue/language-server"
-
-nvim_lsp.ts_ls.setup {
-  on_attach = M.on_attach,
-  capabilities = capabilities,
-  single_file_support = true,
-  flags = flags,
-
-  init_options = {
-    plugins = {
-      {
-        name = "@vue/typescript-plugin",
-        location = vue_language_server_path,
-        languages = { "vue" },
-      },
-    },
-  },
-  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-}
-
-nvim_lsp.pylsp.setup {
-  on_attach = M.on_attach,
-  capabilities = capabilities,
-  single_file_support = true,
-  flags = flags,
-  settings = {
-    pylsp = {
-      plugins = {
-        pyls_black = { enabled = true },
-        pycodestyle = { enabled = true },
-        autopep8 = { enabled = true },
-        isort = { enabled = true, profile = "black" },
-      },
-    },
-  },
-}
-
-nvim_lsp.rust_analyzer.setup {
-  on_attach = M.on_attach,
-  capabilities = capabilities,
-  single_file_support = true,
-  flags = flags,
-  settings = {
-    ["rust-analyzer"] = {
-      standalone = true,
-      checkOnSave = {
-        command = "clippy",
-      },
-    },
-  },
-}
-
-nvim_lsp.lua_ls.setup {
-  on_attach = M.on_attach,
-  capabilities = capabilities,
-  single_file_support = true,
-  flags = flags,
-
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-      completion = {
-        enable = true,
-      },
-      runtime = {
-        version = "LuaJIT",
-      },
-      workspace = {
-        library = {
-          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.expand "$VIMRUNTIME/lua/vim"] = true,
-          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-        },
-        maxPreload = 100000,
-        preloadFileSize = 10000,
-      },
-    },
-  },
-}
-
-nvim_lsp.gopls.setup {
-  on_attach = M.on_attach,
-  capabilities = capabilities,
-  single_file_support = true,
-  flags = flags,
-
-  cmd = { "gopls", "-remote=auto" },
-  filetypes = { "go", "gomod", "gotmpl", "gowork" },
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-  settings = {
-    gopls = {
-      analyses = {
-        nilness = true,
-        shadow = false,
-        unusedparams = false,
-        unusewrites = true,
-        ST1000 = false,  -- 包注释不正确或缺失
-        ST1020 = false, -- 导出函数的文档应以函数名称开头
-      },
-      staticcheck = true,
-      usePlaceholders = false,
-      completeUnimported = true,
-      gofumpt = true,
-    },
-  },
-}
 
 return M
