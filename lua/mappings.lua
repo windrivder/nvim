@@ -74,8 +74,8 @@ map(
 -- toggleterm
 map("n", "<leader>h", "<cmd> ToggleTerm direction=horizontal <CR>", { desc = "toggle horizontal terminal" })
 map("n", "<leader>v", "<cmd> ToggleTerm direction=vertical <CR>", { desc = "toggle vertical terminal" })
-map("n", "<leader>m", [[<cmd> lua require("plugins.others").custom_term("glow") <CR>]], { desc = "toggle markdown" })
-map("n", "<leader>g", [[<cmd> lua require("plugins.others").custom_term("lazygit") <CR>]], { desc = "toggle lazygit" })
+map("n", "<leader>m", [[<cmd> lua require("configs.others").custom_term("glow") <CR>]], { desc = "toggle markdown" })
+map("n", "<leader>g", [[<cmd> lua require("configs.others").custom_term("lazygit") <CR>]], { desc = "toggle lazygit" })
 
 map("t", "<ESC>", "[[<C-><C-n>]]", { desc = "vi mode" })
 map("t", "<leader>h", "<cmd> ToggleTerm direction=horizontal <CR>", { desc = "toggle horizontal terminal" })
