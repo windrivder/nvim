@@ -85,10 +85,10 @@ M.custom_term = function(exec_name)
     cmd = exec_name,
     close_on_exit = true,
     hidden = true,
-    direction = "float",
-    float_opts = {
-      border = "single",
-    },
+    direction = "tab",
+    -- float_opts = {
+    --   border = "single",
+    -- },
   }
   term:toggle()
 end
