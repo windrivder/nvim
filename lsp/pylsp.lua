@@ -9,7 +9,7 @@ return {
     pylsp = {
       plugins = {
         pyls_black = { enabled = true },
-        pycodestyle = { enabled = true },
+        pycodestyle = { enabled = true, ignore = { "E501" } },
         autopep8 = { enabled = true },
         isort = { enabled = true, profile = "black" },
       },

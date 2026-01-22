@@ -8,7 +8,7 @@ return {
   settings = {
     ["rust-analyzer"] = {
       standalone = true,
-      checkOnSave = {
+      check = {
         command = "clippy",
       },
     },
