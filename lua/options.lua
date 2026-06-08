@@ -34,7 +34,7 @@ opt.jumpoptions = "view"
 opt.formatoptions = "1jcroql"
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --hidden --vimgrep --smart-case --"
-opt.wrap = false
+opt.wrap = true
 
 -- indenting
 opt.smartindent = true

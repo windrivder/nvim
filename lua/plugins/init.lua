@@ -230,7 +230,7 @@ local plugins = {
     event = "VeryLazy",
     opts = {
       enabled = false,
-      message_template = "<summary> • <date> • <author>",
+      message_template = "<author> • <date> • <summary>",
       date_format = "%m-%d-%Y %H:%M:%S",
       virtual_text_column = 1,
     },

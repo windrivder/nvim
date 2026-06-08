@@ -38,7 +38,6 @@ map("n", "<S-TAB>", "<cmd> bprevious <CR>", { desc = "switch previous buffer" })
 map("n", "ga", "<cmd> lua vim.lsp.buf.code_action() <CR>", { desc = "lsp code action" })
 map("n", "gd", "<cmd> lua vim.lsp.buf.definition() <CR>", { desc = "lsp definition" })
 map("n", "gD", "<cmd> lua vim.lsp.buf.type_definition() <CR>", { desc = "lsp type definition" })
-map("n", "ge", "<cmd> lua vim.lsp.buf.format { async = true } <CR>", { desc = "lsp format" })
 map(
   "n",
   "ge",

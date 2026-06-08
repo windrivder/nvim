@@ -6,7 +6,7 @@ M.on_attach = function(client, bufnr)
   client.server_capabilities.documentFormattingProvider = true
   client.server_capabilities.documentRangeFormattingProvider = true
 
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
   if client.server_capabilities.signatureHelpProvider then
     require("configs.signature").setup(client)
   end
@@ -46,13 +46,12 @@ M.defaults = function()
     "jsonls",
     "ts_ls",
     "pylsp",
-    "rust_analyzer",
     "lua_ls",
     "gopls",
   }
   for _, server in ipairs(servers) do
     vim.lsp.enable(server)
-  end 
+  end
 end
 
 return M
